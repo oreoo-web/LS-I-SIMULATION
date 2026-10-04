@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>In-Silico Wound-Healing Simulation Platform</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#18212f;--muted:#667085;--line:#dfe4ec;--accent:#5b4bdb;--good:#16835b;--warn:#9a6700;--danger:#b42318}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}header{background:linear-gradient(135deg,#211b52,#5b4bdb);color:#fff;padding:28px 5%}header h1{margin:0 0 6px;font-size:29px}header p{margin:0;opacity:.9}nav{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:9px 5%;display:flex;gap:7px;flex-wrap:wrap}nav button{border:0;background:#eef0f6;padding:10px 13px;border-radius:10px;font-weight:750;color:#344054;cursor:pointer}nav button.active{background:var(--accent);color:#fff}main{max-width:1250px;margin:auto;padding:25px 5% 60px}section{display:none}section.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:19px;margin-bottom:17px;box-shadow:0 3px 12px #1018280a}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}label{display:block;font-weight:750;font-size:13px;margin:10px 0 6px}input,select{width:100%;padding:10px;border:1px solid #cfd5df;border-radius:9px;background:#fff;font:inherit}button.primary,button.secondary{border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}.primary{background:var(--accent);color:#fff}.secondary{background:#eef0f6;color:#18212f}.metric{background:#f8f9fc;border:1px solid var(--line);padding:13px;border-radius:12px}.metric b{display:block;font-size:22px;margin-top:4px}.badge{display:inline-block;padding:5px 9px;border-radius:999px;background:#eeecff;color:#4437b5;font-size:12px;font-weight:800}.note,small{color:var(--muted);line-height:1.5}.status{padding:10px;border-radius:10px;background:#f2f4f7;margin-top:10px}.good{background:#e8f7f0;color:#126744}.warn{background:#fff6df;color:#8a5b12}.pipeline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.step{background:#f0efff;border:1px solid #d8d3ff;padding:11px;border-radius:11px;font-weight:800}.arrow{font-size:20px;color:#7a6fe8}table{width:100%;max-width:100%;border-collapse:collapse;table-layout:fixed;overflow:hidden}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top;overflow-wrap:anywhere;word-break:break-word}th{background:#f8f9fc}.scroll{overflow-x:auto;width:100%;max-width:100%}.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#f7f7fb;border:1px solid var(--line);padding:12px;border-radius:10px}.hide{display:none!important}.canvasWrap{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#dce7ee;width:100%;max-width:100%}.canvasWrap canvas{display:block;width:100%;height:auto;max-width:100%;box-sizing:border-box}.chartWrap{width:100%;max-width:100%;height:clamp(230px,32vw,340px);position:relative;overflow:hidden}.chartWrap canvas{display:block;width:100%;height:100%;max-width:100%}.legend{display:flex;gap:15px;flex-wrap:wrap;font-size:13px;margin-top:9px}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.blue{background:#5146d8}.pink{background:#d9468b}.gel{background:#c7a5ff}.wound{background:#e9b7b0}.subtle{font-size:12px;color:var(--muted)}
+@media(max-width:800px){.grid,.grid3{grid-template-columns:1fr}header h1{font-size:23px}nav{overflow-x:auto;flex-wrap:nowrap}nav button{white-space:nowrap}.card{padding:15px}}
+</style>
+</head>
+<body>
+<header><h1>In-Silico Wound-Healing Simulation Platform</h1><p>Chitosan–Sodium Alginate Hydrogel with Carotenoid Extract from Golden Apple Snail (<i>Pomacea canaliculata</i>) Eggs</p></header>
+<nav>
+<button class="active" data-tab="overview">Overview</button><button data-tab="inputs">Laboratory Inputs</button><button data-tab="simulation">Skin Model Simulation</button><button data-tab="runs">3 Simulation Runs</button><button data-tab="results">Results & Comparison</button><button data-tab="method">Method Guide</button>
+</nav>
+<main>
+<section id="overview" class="active">
+<div class="card"><h2>In-Silico Wound Healing</h2><p>After laboratory characterization, this platform serves as the computational testing stage: enter hydrogel properties, define model settings, simulate wound-gap closure, repeat runs, and compare the control and carotenoid-infused formulations.</p><div class="pipeline"><div class="step">Laboratory Results</div><span class="arrow">→</span><div class="step">Measured Wound Area</div><span class="arrow">→</span><div class="step">Skin Model Simulation</div><span class="arrow">→</span><div class="step">3 Runs / Group</div><span class="arrow">→</span><div class="step">Mean ± SD</div></div></div>
+<div class="grid"><div class="card"><span class="badge">CONTROL</span><h3>Chitosan–Sodium Alginate Hydrogel</h3><p>No carotenoid extract. Baseline comparison group.</p></div><div class="card"><span class="badge">EXPERIMENTAL</span><h3>Carotenoid-Infused Hydrogel</h3><p>Chitosan–sodium alginate hydrogel incorporating carotenoid extract from Golden Apple Snail eggs.</p></div></div>
+<div class="card"><h3>Purpose of the In-Silico Wound Healing</h3><p class="note">This in-silico stage integrates laboratory characterization with a cell-based model to estimate and compare wound-closure behavior under the entered conditions. The 3D visualization and simulated closure are model outputs; their predictive accuracy depends on calibration and validation using suitable reference data.</p></div>
+</section>
+
+<section id="inputs">
+<div class="card"><h2>Laboratory & Model Inputs</h2><p>All original laboratory/model inputs are retained. Enter actual measurements where available.</p>
+<div class="grid"><div><h3>Control Hydrogel</h3>
+<label>Initial Hydrogel Weight W₀ (g)</label><input id="c_swelling_w0" type="number" step="any" min="0" placeholder="Initial dry/wet weight">
+<label>Swollen Hydrogel Weight Wₜ (g)</label><input id="c_swelling_wt" type="number" step="any" min="0" placeholder="Weight after swelling">
+<label>pH</label><input id="c_ph" type="number" step="any" placeholder="e.g., 6.8">
+<label>DPPH Scavenging Activity (%)</label><input id="c_dpph" type="number" step="any" placeholder="e.g., 10">
+<label>IC₅₀ (µg/mL)</label><input id="s_ic50_c" type="number" step="any" placeholder="Experimental result">
+<label>Diffusion / Release Rate (%)</label><input id="s_diff_c" type="number" step="any">
+<label>Diffusion Area (cm²)</label><input id="s_area_c" type="number" step="any" placeholder="Required for flux">
+<label>Cell Migration Initial Area</label><input id="s_mig0_c" type="number" step="any" placeholder="Scratch area A₀">
+<label>Cell Migration Final Area</label><input id="s_migt_c" type="number" step="any" placeholder="Scratch area Aₜ">
+<label>Toxicity (%)</label><input id="c_tox" type="number" step="any" min="0" max="100" placeholder="(Dead brine shrimp / Total brine shrimp) × 100">
+</div><div><h3>Carotenoid-Infused Hydrogel</h3>
+<label>Initial Hydrogel Weight W₀ (g)</label><input id="e_swelling_w0" type="number" step="any" min="0" placeholder="Initial dry/wet weight">
+<label>Swollen Hydrogel Weight Wₜ (g)</label><input id="e_swelling_wt" type="number" step="any" min="0" placeholder="Weight after swelling">
+<label>pH</label><input id="e_ph" type="number" step="any" placeholder="e.g., 6.9">
+<label>DPPH Scavenging Activity (%)</label><input id="e_dpph" type="number" step="any" placeholder="e.g., 75">
+<label>IC₅₀ (µg/mL)</label><input id="s_ic50_e" type="number" step="any" placeholder="Experimental result">
+<label>Diffusion / Release Rate (%)</label><input id="s_diff_e" type="number" step="any">
+<label>Diffusion Area (cm²)</label><input id="s_area_e" type="number" step="any" placeholder="Required for flux">
+<label>Cell Migration Initial Area</label><input id="s_mig0_e" type="number" step="any" placeholder="Scratch area A₀">
+<label>Cell Migration Final Area</label><input id="s_migt_e" type="number" step="any" placeholder="Scratch area Aₜ">
+<label>Toxicity (%)</label><input id="e_tox" type="number" step="any" min="0" max="100" placeholder="(Dead brine shrimp / Total brine shrimp) × 100">
+</div></div>
+<hr>
+<h3>Simulation Parameters</h3><div class="grid3"><div><label>Initial Wound Size (mm)</label><input id="s_wound" type="number" step="0.1" min="0.1"></div><div><label>Initial Cell Population</label><input id="pop" type="number" min="20" max="1000" step="10"></div><div><label>Reference IC₅₀ Maximum (µg/mL)</label><input id="s_ic50max" type="number" step="any"></div></div>
+<div class="grid3" style="margin-top:14px"><div><label>Cell Migration Speed (µm/hour; model assumption)</label><input id="s_speed" type="number" step="any"></div><div><label>Cell Doubling Time (hours; verify for cell type/passage)</label><input id="s_growth" type="number" step="any"></div><div><label>Simulation Duration (hours)</label><select id="duration"><option>24</option><option>48</option><option>72</option></select></div></div>
+<div class="card" style="margin-top:16px;background:#fbfbff"><h3>Laboratory Input Calculations & Measurement Notes</h3>
+<div class="formula">Swelling ratio (%) = [(Wₜ − W₀) / W₀] × 100</div><p class="note"><b>W₀:</b> weigh the lyophilized dry hydrogel before immersion. <b>Wₜ:</b> after the chosen swelling time, remove the sample, blot surface liquid, and weigh it. The page computes the ratio from those two entries. Use PBS at 37°C, a stated time point (or equilibrium), and replicate measurements. Sources: <a href="https://academic.oup.com/rb/article/doi/10.1093/rb/rbaf052/8169805" target="_blank" rel="noopener">rbaf052</a> and <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11986482/" target="_blank" rel="noopener">PMC11986482</a>.</p>
+<div class="formula">pH = calibrated pH-meter reading (no arithmetic conversion)</div><p class="note">Use a calibrated pH meter on a consistently prepared hydrogel solution/extract, record the dilution, temperature and time point, and report replicate readings (mean ± SD). The cited study measured 1 g lyophilized hydrogel dissolved in 5 mL PBS and read the solution in triplicate. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11337927/" target="_blank" rel="noopener">PMC11337927</a>. Enter the measured pH; do not substitute the paper's example values.</p>
+<div class="formula">IC₅₀ = concentration producing 50% DPPH radical scavenging (µg/mL)</div><p class="note">Measure DPPH response over a concentration series, calculate scavenging at each concentration, then estimate the 50% point from the concentration–response curve (preferably nonlinear dose-response fit; report the fit and replicates). A single absorbance or concentration is insufficient. The cited paper derives IC₅₀ from its DPPH assay; this is an antioxidant IC₅₀, not a cell-toxicity IC₅₀. Source: <a href="https://www.nature.com/articles/s41598-025-03555-x" target="_blank" rel="noopener">Scientific Reports s41598-025-03555-x</a>.</p>
+<div class="formula">DPPH scavenging (%) = [(Ablank − Asample) / Ablank] × 100</div><p class="note">Use the DPPH control/blank absorbance and sample-plus-DPPH absorbance at 517 nm after the specified dark incubation. Enter the resulting percentage. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9909831/" target="_blank" rel="noopener">PMC9909831</a>.</p>
+<div class="formula">Cumulative release (%) = cumulative mass released by t / initially loaded mass × 100</div><p class="note">Quantify released material at each time point using a calibration curve and account for withdrawn/replaced aliquots; divide cumulative released mass by initial loaded mass. Enter the percentage at a stated time point; it cannot be derived without loaded mass and release measurements. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10975535/" target="_blank" rel="noopener">PMC10975535</a>.</p>
+<div class="formula">Diffusion area (cm²) = measured exposed membrane / hydrogel contact area</div><p class="note">Use the actual exposed cross-sectional/contact area from the diffusion-cell geometry (for a circular opening, πr² with r in cm). Do not use the whole hydrogel surface unless that entire surface is exposed. Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9866939/" target="_blank" rel="noopener">PMC9866939</a>.</p>
+<div class="formula">Cell migration / scratch closure (%) = [(A₀ − Aₜ) / A₀] × 100</div><p class="note">Measure the cell-free scratch area in calibrated images at time zero (A₀) and the selected later time (Aₜ), e.g. using ImageJ. The page uses these areas to compute percent closure. Keep units and imaging scale consistent. Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11492349/" target="_blank" rel="noopener">PMC11492349</a> and <a href="https://academic.oup.com/rb/article/doi/10.1093/rb/rbad023/7083443" target="_blank" rel="noopener">rbad023</a>.</p>
+<div class="formula">Toxicity (%) = [(Number of dead brine shrimp) / (Total number of brine shrimp)] × 100</div><p class="note">Use the number of dead brine shrimp and the total number of brine shrimp used in the assay. If survival percentage is used: Toxicity (%) = 100 − Survival (%).</p>
+<p class="note"><b>Scope:</b> Laboratory-derived swelling, pH, IC₅₀, DPPH, release, migration and MTT toxicity values feed corresponding simulation modifiers shown in the mapping table. Diffusion area supports flux calculation only when paired with permeated amount and time data; those measurements are not collected here. Model coefficients remain assumptions and require calibration against independent wound-healing data before predictive accuracy can be claimed. Literature values are method references, not default measurements for these formulations.</p></div><br><button class="primary" onclick="saveAllInputs()">Save All Inputs</button> <button class="secondary" onclick="resetAllInputs()">Reset</button><div id="inputStatus" class="status"></div>
+<div class="grid3" style="margin-top:14px"><div class="metric">Control Antioxidant Effect<b id="aeC">—</b></div><div class="metric">Experimental Antioxidant Effect<b id="aeE">—</b></div><div class="metric">Calibrated Migration Rate<b id="migCalib">—</b></div></div>
+<div class="card" style="margin-top:16px;background:#fbfbff"><h3>What the Simulation Reads</h3><div class="scroll"><table><thead><tr><th>Input</th><th>Simulation use</th><th>Control</th><th>Experimental</th></tr></thead><tbody>
+<tr><td>Wound size</td><td>Initial gap</td><td colspan="2" id="traceWound">—</td></tr><tr><td>Initial cell population</td><td>Starting agents</td><td colspan="2" id="tracePop">—</td></tr><tr><td>Cell migration speed</td><td>Baseline migration parameter</td><td colspan="2" id="traceMigration">—</td></tr><tr><td>Cell doubling time</td><td>Baseline proliferation parameter</td><td colspan="2" id="traceGrowth">—</td></tr><tr><td>Diffusion / release</td><td>Exposure modifier</td><td id="traceDiffC">—</td><td id="traceDiffE">—</td></tr><tr><td>Diffusion area</td><td>Flux normalization; requires permeated amount and time data</td><td colspan="2">See measured area fields above</td></tr><tr><td>DPPH / antioxidant</td><td>Antioxidant modifier</td><td id="traceDpphC">—</td><td id="traceDpphE">—</td></tr><tr><td>Swelling capacity</td><td>Hydration-related modifier</td><td id="traceSwellingC">—</td><td id="traceSwellingE">—</td></tr><tr><td>pH</td><td>Compatibility modifier</td><td id="tracePhC">—</td><td id="tracePhE">—</td></tr><tr><td>Toxicity score</td><td>Cell-survival modifier</td><td id="traceToxC">—</td><td id="traceToxE">—</td></tr><tr><td>IC₅₀</td><td>Antioxidant-strength modifier</td><td id="traceIcC">—</td><td id="traceIcE">—</td></tr>
+</tbody></table></div><p class="note">Integrated lab-to-simulation calculation: swelling = (Wt−W0)/W0×100; antioxidant index = 0.75×DPPH fraction + 0.25×IC50 index; exposure = release fraction; hydration factor = clamp(0.96 + 0.08×swelling fraction, 0.90, 1.08); pH factor = clamp(1−0.06×|pH−7.4|, 0.80, 1); survival factor = 1−toxicity fraction. These factors modify simulated migration, proliferation and the treatment closure ceiling. Scratch-area measurements add a measured-closure modifier when both areas are entered. Diffusion area is recorded, but cannot change model exposure by itself: permeated amount and time (and loaded dose) are needed to calculate flux. Coefficients and mappings are assumptions, not validated biological laws; combining them does not establish predictive accuracy. Cell proliferation uses the entered doubling time.</p></div>
+</div>
+
+<div class="card"><h2>Measured Wound-Healing Data</h2><p>Enter <b>measured wound area</b> from your experimental wound/scratch images. This is the primary quantitative wound-closure endpoint.</p><div class="formula">Wound Closure (%) = [(A₀ − Aₜ) / A₀] × 100</div><p class="note">A₀ = wound area at 0 h; Aₜ = wound area at the time. Use the same image-analysis method and units for every time point.</p>
+<div class="grid"><div><h3>Control Hydrogel</h3><div id="controlMeasurements"></div></div><div><h3>Carotenoid-Infused Hydrogel</h3><div id="experimentalMeasurements"></div></div></div><br><button class="primary" onclick="calculateMeasured()">Calculate Measured Closure</button> <button class="secondary" onclick="clearMeasured()">Clear Measured Data</button><div id="measuredStatus" class="status"></div></div>
+<div class="card"><h3>Measured Wound Closure</h3><div class="scroll"><table><thead><tr><th>Time</th><th>Control Area</th><th>Control Closure</th><th>Experimental Area</th><th>Experimental Closure</th></tr></thead><tbody id="measuredTable"></tbody></table></div></div>
+</section>
+
+<section id="simulation"><div class="card"><h2>3D Human Skin Model</h2><p>This visualization represents a simplified tissue surface with a wound gap, hydrogel region, and 3D skin-cell agents. It uses the saved laboratory/model inputs but remains a computational skin model.</p>
+<div class="grid3"><div><label>Treatment</label><select id="simGroup"><option value="control">Control Hydrogel</option><option value="experimental">Carotenoid-Infused Hydrogel</option></select></div><div><label>Simulation Duration (hours)</label><select id="simDuration"><option>24</option><option>48</option><option>72</option></select></div><div><label>Animation Speed</label><select id="speed"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></div></div><br>
+<div class="grid3"><div class="metric">Time<b id="mTime">0.00 h</b></div><div class="metric">Simulated Closure<b id="mClosure">0.00%</b></div><div class="metric">Remaining Gap<b id="mGap">—</b></div></div><div class="metric" style="margin-top:12px">Cell Population<b id="mPop">—</b></div><div class="metric" style="margin-top:12px">Live model parameters<b id="liveParams" style="font-size:14px;line-height:1.5">—</b></div>
+<div class="canvasWrap"><canvas id="cellCanvas" width="1100" height="500"></canvas></div><div class="legend"><span><i class="dot blue"></i>Keratinocyte-like agents</span><span><i class="dot pink"></i>Fibroblast-like agents</span><span><i class="dot gel"></i>Hydrogel region</span><span><i class="dot wound"></i>Wound bed</span></div><p class="subtle">Visual model: a large linear skin wound is shown at the start; cells migrate toward the cut and the visible slice gradually closes as simulated healing increases.</p><h3>Simulated Closure Curve</h3><div class="chartWrap"><canvas id="chart" width="1100" height="330" aria-label="Simulated wound closure over time" role="img"></canvas></div><br><button class="primary" onclick="startSimulation()">Start / Resume</button> <button class="secondary" onclick="pauseSimulation()">Pause</button> <button class="secondary" onclick="resetSimulation()">Reset</button> <button class="secondary" onclick="exportCurrent()">Export Simulation CSV</button><div id="simStatus" class="status"></div></div></section>
+
+<section id="runs"><div class="card"><h2>Three Independent Simulation Runs</h2>
+<p>Each run uses a different seed while keeping the same saved parameters.</p>
+<div class="grid3">
+  <div class="metric"><b>Run 1</b><span id="r1">Not completed</span></div>
+  <div class="metric"><b>Run 2</b><span id="r2">Not completed</span></div>
+  <div class="metric"><b>Run 3</b><span id="r3">Not completed</span></div>
+</div>
+<br>
+<div class="field">
+  <label for="runDuration"><b>Simulation Duration for the 3 Runs</b></label>
+  <select id="runDuration">
+    <option value="24">3 Runs — 24 hours</option>
+    <option value="48" selected>3 Runs — 48 hours</option>
+    <option value="72">3 Runs — 72 hours</option>
+  </select>
+</div>
+<br>
+<button class="primary" onclick="runThree()">Run 3 Independent Simulations</button>
+<button class="secondary" onclick="clearRuns()">Clear Runs</button>
+<div id="runStatus" class="status"></div></div>
+<div class="card"><h3>Simulation Run Table</h3>
+<div class="scroll"><table><thead><tr>
+<th>Treatment</th><th>Run 1 Closure</th><th>Run 2 Closure</th><th>Run 3 Closure</th><th>Mean</th><th>SD</th>
+</tr></thead><tbody>
+<tr><td>Control</td><td id="ct1">—</td><td id="ct2">—</td><td id="ct3">—</td><td id="ctm">—</td><td id="cts">—</td></tr>
+<tr><td>Carotenoid-Infused</td><td id="et1">—</td><td id="et2">—</td><td id="et3">—</td><td id="etm">—</td><td id="ets">—</td></tr>
+</tbody></table></div></div></section>
+<section id="results"><div class="card"><h2>Results & Comparison</h2><div class="grid"><div class="metric"><span>Measured Control Closure at Final Entered Time</span><b id="measuredC">—</b></div><div class="metric"><span>Measured Experimental Closure at Final Entered Time</span><b id="measuredE">—</b></div></div><p class="note">Measured closure is calculated from the 0 h wound area and the latest entered later area for each group: [(A₀ − Aₜ) / A₀] × 100. Enter a 0 h baseline and at least one later area; results update as you type.</p><br><div class="grid"><div class="metric"><span>Mean Simulated Control Closure</span><b id="resC">—</b></div><div class="metric"><span>Mean Simulated Experimental Closure</span><b id="resE">—</b></div></div><br><div class="scroll"><table><thead><tr><th>Parameter</th><th>Control</th><th>Carotenoid-Infused</th></tr></thead><tbody><tr><td>Measured wound closure</td><td id="cmpMeasuredC">—</td><td id="cmpMeasuredE">—</td></tr><tr><td>Mean simulated wound closure</td><td id="cmpC">—</td><td id="cmpE">—</td></tr><tr><td>Simulation SD</td><td id="cmpCS">—</td><td id="cmpES">—</td></tr><tr><td>Independent simulation runs</td><td>3</td><td>3</td></tr></tbody></table></div><br><button class="secondary" onclick="exportSummary()">Export Summary CSV</button><div class="status warn">Interpretation: measured closure is experimental data; simulated closure is computational output. In-silico wound healing: compare the model-predicted wound-closure patterns for the control and carotenoid-infused hydrogels using the entered laboratory inputs and simulation settings. Interpret these outputs as computational findings; predictive accuracy depends on calibration and validation against suitable reference data.</div></div></section>
+
+<section id="method"><div class="card"><h2>How to Use the Platform</h2><ol><li>Complete laboratory characterization first and enter the actual measurements.</li><li>Measure wound area from experimental images at consistent time points.</li><li>Enter the measured wound areas under <b>Measured Wound-Healing Data</b>.</li><li>Calculate wound closure using the area-based formula.</li><li>Use the 3D simulation to visualize modeled migration/proliferation behavior.</li><li>Run three independent computational runs for each group.</li><li>Report measured data separately from simulated data.</li></ol></div><div class="card"><h3>Source-to-Model Mapping</h3><ul><li><b>Toxicity:</b> Toxicity (%) = (number of dead brine shrimp / total number of brine shrimp) × 100; if survival percentage is used, Toxicity (%) = 100 − Survival (%).</li><li><b>Cell migration:</b> the cited chitosan/gelatin/PEDOT:PSS Figure 11 is a scratch assay; use measured closure over time, not a universal speed constant. If converting to edge speed, report the measurement definition and units (µm/h).</li><li><b>Diffusion:</b> flux J from cumulative permeation per unit area over time and Kp = J/Cd from Thakkar et al. (2016). citeturn1search4</li><li><b>DPPH:</b> [(Ak−As)/Ak]×100 from Zhang et al. (2021). citeturn1search2</li><li><b>Initial wound:</b> 2 × 2 cm excision from the Immortelle diabetic-wound study (20 mm width used as the linear model gap).</li><li><b>Starting cells:</b> the cited AgNP-CS/PVA study seeded 100,000 cells/mL × 1 mL for its scratch assay; the platform uses up to 1000 representative agents, not literal cells.</li><li><b>Reference antioxidant IC₅₀:</b> approximately 7.69 µg/mL from the Tridax patch study; this DPPH IC₅₀ is not a cytotoxicity IC₅₀.</li><li><b>Doubling time:</b> calculate DT = t × ln(2) / ln(Nt/N0) from the cited fibroblast study; its result varies by passage and cell type, so 24 h is only a starting model assumption.</li><li><b>Wound closure:</b> area-based closure = [(A0−At)/A0]×100 from the Mupirocin–KGF and Immortelle wound studies.</li></ul></div><div class="card"><h3>Scope and interpretation</h3><p>This platform is intended as an in-silico wound-healing stage for comparing modeled wound-closure behavior. It estimates wound-gap closure based on the entered laboratory values and model assumptions; it does not represent every biological process, such as inflammation, extracellular-matrix remodeling, angiogenesis, or re-epithelialization. The model should be calibrated and validated against suitable reference data before its predictions are treated as reliable.</p></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);let inputs={},sim=null,animationId=null,runs={control:[],experimental:[]},measured={control:{},experimental:{}};
+const times=[0,12,24,36,48,72];
+function num(id,f=0){const v=parseFloat($(id)?.value);return Number.isFinite(v)?v:f}function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function sourceSwellingFromFields(g){const w0=num(g==='control'?'c_swelling_w0':'e_swelling_w0',NaN);const wt=num(g==='control'?'c_swelling_wt':'e_swelling_wt',NaN);if(!Number.isFinite(w0)||w0<=0||!Number.isFinite(wt)||wt<0)return 0;return Math.max(0,(wt-w0)/w0*100)}
+function saveAllInputs(){inputs={control:{swelling:sourceSwellingFromFields('control'),swellingW0:num('c_swelling_w0',0),swellingWt:num('c_swelling_wt',0),ph:num('c_ph',7.4),dpph:num('c_dpph',0),ic50:parseFloat($('s_ic50_c').value),release:num('s_diff_c',0),area:num('s_area_c',0),mig0:num('s_mig0_c',0),migt:num('s_migt_c',0),tox:num('c_tox',0)},experimental:{swelling:sourceSwellingFromFields('experimental'),swellingW0:num('e_swelling_w0',0),swellingWt:num('e_swelling_wt',0),ph:num('e_ph',7.4),dpph:num('e_dpph',0),ic50:parseFloat($('s_ic50_e').value),release:num('s_diff_e',0),area:num('s_area_e',0),mig0:num('s_mig0_e',0),migt:num('s_migt_e',0),tox:num('e_tox',0)},wound:num('s_wound',20),pop:num('pop',1000),ic50max:num('s_ic50max',7.69),speed:num('s_speed',12.5),growth:num('s_growth',24),duration:num('duration',48)};updateTrace();localStorage.setItem('woundInputs',JSON.stringify(inputs));$('inputStatus').className='status good';$('inputStatus').textContent='Inputs saved. Published source equations are used where the required measurements are supplied.';}
+function loadInputs(){try{const x=JSON.parse(localStorage.getItem('woundInputs')||'null');if(!x)return;const set=(id,v)=>{if($(id)&&v!==undefined&&v!==null&&!Number.isNaN(v))$(id).value=v};set('c_swelling_w0',x.control.swellingW0);set('c_swelling_wt',x.control.swellingWt);set('c_ph',x.control.ph);set('c_dpph',x.control.dpph);set('s_ic50_c',x.control.ic50);set('s_diff_c',x.control.release);set('s_area_c',x.control.area);set('s_mig0_c',x.control.mig0);set('s_migt_c',x.control.migt);set('c_tox',x.control.tox);set('e_swelling_w0',x.experimental.swellingW0);set('e_swelling_wt',x.experimental.swellingWt);set('e_ph',x.experimental.ph);set('e_dpph',x.experimental.dpph);set('s_ic50_e',x.experimental.ic50);set('s_diff_e',x.experimental.release);set('s_area_e',x.experimental.area);set('s_mig0_e',x.experimental.mig0);set('s_migt_e',x.experimental.migt);set('e_tox',x.experimental.tox);set('s_wound',x.wound);set('pop',x.pop);set('s_ic50max',x.ic50max);set('s_speed',x.speed);set('s_growth',x.growth);set('duration',x.duration);inputs=x;updateTrace()}catch(e){}}
+function resetAllInputs(){localStorage.removeItem('woundInputs');location.reload()}
+function antioxidantEffect(ic,max){if(!Number.isFinite(ic)||ic<=0)return 0;return clamp(1-ic/Math.max(1,max),0,1)}
+function dpphFromAbsorbance(ak,as){return Number.isFinite(ak)&&ak>0&&Number.isFinite(as)?clamp((ak-as)/ak,0,1):null}
+function sourceMigration(x){return Number.isFinite(x.mig0)&&x.mig0>0&&Number.isFinite(x.migt)?clamp((x.mig0-x.migt)/x.mig0,0,1):null}
+function sourceFlux(x,duration){return null}
+function params(g){
+ if(!inputs.control)saveAllInputs();
+ const x=inputs[g];
+ const ic=antioxidantEffect(x.ic50,inputs.ic50max);
+ const d=clamp(x.dpph/100,0,1);
+ const antioxidant=.75*d+.25*ic;
+ const exposure=clamp(x.release/100,0,1);
+ const swelling=clamp(.96+.08*(x.swelling/100),.90,1.08);
+ const ph=clamp(1-Math.abs(x.ph-7.4)*.06,.80,1);
+ const safety=clamp(1-x.tox/100,0,1);
+ const migrationObs=sourceMigration(x);
+ const flux=sourceFlux(x,inputs.duration);
+ const migrationModifier=migrationObs===null?1:(.75+.5*migrationObs);
+ const diffusionModifier=clamp(.90+.20*clamp(x.release/100,0,1),.90,1.10);
+ const support=g==='experimental'?clamp(1+antioxidant*.30+exposure*.20,1,1.50):clamp(.96+antioxidant*.05+exposure*.03,.90,1.05);
+ const baselineClosure=g==='experimental'?clamp(.52+antioxidant*.34+exposure*.10+safety*.04,.52,.94):clamp(.42+antioxidant*.10+exposure*.05+safety*.04,.40,.70);
+ return{migration:inputs.speed*.020*support*swelling*ph*safety*migrationModifier*diffusionModifier,prolif:(Math.log(2)/Math.max(1,inputs.growth))*.55*support*ph*safety,antioxidantFactor:antioxidant,release:x.release,ph,safety,targetClosure:baselineClosure,noise:.10,migrationObserved:migrationObs,flux};
+}
+function updateTrace(){if(!inputs.control)return;const c=inputs.control,e=inputs.experimental,pc=params('control'),pe=params('experimental');$('traceWound').textContent=inputs.wound+' mm';$('tracePop').textContent=inputs.pop;$('traceMigration').textContent=inputs.speed.toFixed(2)+' µm/h';$('traceGrowth').textContent=inputs.growth.toFixed(2)+' h';$('traceDiffC').textContent=c.release.toFixed(2)+'%';$('traceDiffE').textContent=e.release.toFixed(2)+'%';$('traceDpphC').textContent=c.dpph.toFixed(2)+'%';$('traceDpphE').textContent=e.dpph.toFixed(2)+'%';$('traceSwellingC').textContent=c.swelling.toFixed(2)+'%';$('traceSwellingE').textContent=e.swelling.toFixed(2)+'%';$('tracePhC').textContent=c.ph.toFixed(2);$('tracePhE').textContent=e.ph.toFixed(2);$('traceToxC').textContent=c.tox.toFixed(2);$('traceToxE').textContent=e.tox.toFixed(2);$('traceIcC').textContent=Number.isFinite(c.ic50)?c.ic50.toFixed(2)+' µg/mL':'—';$('traceIcE').textContent=Number.isFinite(e.ic50)?e.ic50.toFixed(2)+' µg/mL':'—';$('aeC').textContent=(pc.antioxidantFactor*100).toFixed(1)+'%';$('aeE').textContent=(pe.antioxidantFactor*100).toFixed(1)+'%';$('migCalib').textContent=(pe.migrationObserved===null?'No measured migration':(pe.migrationObserved*100).toFixed(2)+'% measured migration')}
+function makeMeasurementInputs(){
+ for(const g of ['control','experimental']){
+  const host=$(g==='control'?'controlMeasurements':'experimentalMeasurements');
+  host.innerHTML=times.map(t=>`<div class="sub-input"><label>${t} h — Wound Area</label><input class="${g}-area" data-time="${t}" type="number" step="any" min="0" placeholder="Area (e.g., mm²)" aria-label="${g} wound area at ${t} hours"></div>`).join('');
+  host.querySelectorAll('input').forEach(el=>el.addEventListener('input',calculateMeasured));
+ }
+}function calculateMeasured(){for(const g of ['control','experimental']){measured[g]={};document.querySelectorAll('.'+g+'-area').forEach(el=>{const v=parseFloat(el.value);if(Number.isFinite(v)&&v>=0)measured[g][Number(el.dataset.time)]=v});const a0=measured[g][0];if(Number.isFinite(a0)&&a0>0){for(const t of times)if(Number.isFinite(measured[g][t]))measured[g][t]=Number(measured[g][t])}}renderMeasured();localStorage.setItem('measuredWounds',JSON.stringify(measured));$('measuredStatus').className='status good';$('measuredStatus').textContent='Measured wound-closure values calculated from entered wound areas.'}
+function renderMeasured(){
+ let rows='';
+ for(const t of times){
+  const c=measured.control[t],e=measured.experimental[t],c0=measured.control[0],e0=measured.experimental[0];
+  const cc=Number.isFinite(c)&&Number.isFinite(c0)&&c0>0?clamp((c0-c)/c0*100,0,100):null;
+  const ec=Number.isFinite(e)&&Number.isFinite(e0)&&e0>0?clamp((e0-e)/e0*100,0,100):null;
+  rows+=`<tr><td>${t} h</td><td>${Number.isFinite(c)?c:'—'}</td><td>${cc===null?'—':cc.toFixed(2)+'%'}</td><td>${Number.isFinite(e)?e:'—'}</td><td>${ec===null?'—':ec.toFixed(2)+'%'}</td></tr>`;
+ }
+ $('measuredTable').innerHTML=rows;
+ const last=g=>{const data=measured[g]||{},valid=times.filter(t=>Number.isFinite(data[t]));if(!valid.length)return null;const finalTime=valid[valid.length-1],baseline=data[0];if(!Number.isFinite(baseline)||baseline<=0)return{needsBaseline:true,finalTime};if(finalTime===0)return{needsLater:true,finalTime};return{finalTime,closure:clamp((baseline-data[finalTime])/baseline*100,0,100)}};
+ const c=last('control'),e=last('experimental');
+ const display=(x,g)=>x===null?'Enter wound areas':x.needsBaseline?`Enter 0 h ${g} baseline`:x.needsLater?'Enter a later area':`${x.closure.toFixed(2)}% at ${x.finalTime} h`;
+ $('measuredC').textContent=display(c,'control');$('measuredE').textContent=display(e,'experimental');
+ $('cmpMeasuredC').textContent=display(c,'control');$('cmpMeasuredE').textContent=display(e,'experimental');
+}function clearMeasured(){measured={control:{},experimental:{}};document.querySelectorAll('.control-area,.experimental-area').forEach(x=>x.value='');renderMeasured();localStorage.removeItem('measuredWounds')}
+function loadMeasured(){try{measured=JSON.parse(localStorage.getItem('measuredWounds')||'{"control":{},"experimental":{}}');for(const g of ['control','experimental'])for(const t of times){const el=document.querySelector('.'+g+'-area[data-time="'+t+'"]');if(el&&Number.isFinite(measured[g][t]))el.value=measured[g][t]}renderMeasured()}catch(e){}}
+function rng(seed){let t=seed>>>0;return()=>{t+=0x6D2B79F5;let r=Math.imul(t^t>>>15,1|t);r^=r+Math.imul(r^r>>>7,61|r);return((r^r>>>14)>>>0)/4294967296}}
+function makeSim(group,seed){const R=rng(seed),gap=Math.max(10,inputs.wound*40),N=Math.max(20,inputs.pop);const cells=[];for(let i=0;i<N;i++){const side=i%2?-1:1;cells.push({x:side*(gap/2+R()*28),y:(R()-.5)*70,z:(R()-.5)*10,type:i%3?'K':'F'})}return{group,seed,R,cells,initialGap:gap,gap,elapsed:0,duration:num('simDuration',48),history:[[0,0]]}}
+function step(s,dt){
+const p=params(s.group),R=s.R;
+for(const c of s.cells){
+ const dir=c.x<0?1:-1;
+ const factor=c.type==='K'?1.08:.92;
+ c.x+=dir*p.migration*dt*factor+(R()-.5)*p.noise;
+ c.y+=(R()-.5)*.6;
+ c.z+=(R()-.5)*.25;
+ c.y=clamp(c.y,-43,43);
+ c.z=clamp(c.z,-12,12);
+}
+if(s.cells.length<Math.min(900,inputs.pop*1.8)){
+ const expected=s.cells.length*p.prolif*dt*.18;
+ const births=Math.min(3,Math.floor(expected)+(R()<(expected%1)?1:0));
+ for(let i=0;i<births;i++){
+  const parent=s.cells[Math.floor(R()*s.cells.length)];
+  s.cells.push({x:parent.x+(R()-.5)*2,y:parent.y+(R()-.5)*3,z:parent.z+(R()-.5)*2,type:parent.type});
+ }
+}
+const left=s.cells.filter(c=>c.x<0),right=s.cells.filter(c=>c.x>=0);
+const lx=left.length?Math.max(...left.map(c=>c.x)):-s.initialGap/2;
+const rx=right.length?Math.min(...right.map(c=>c.x)):s.initialGap/2;
+const rawGap=Math.max(0,rx-lx);
+const rawClosure=clamp((s.initialGap-rawGap)/s.initialGap,0,1);
+const elapsedFraction=clamp(s.elapsed/Math.max(1,s.duration),0,1);
+
+/* Map the agent-level closure to a bounded biological response.
+   The entered laboratory properties determine the treatment-specific
+   maximum closure, while the time course approaches that value gradually. */
+const response=1-Math.exp(-3.2*elapsedFraction);
+const modeledClosure=clamp(p.targetClosure*response*(0.45+0.55*rawClosure),0,p.targetClosure);
+
+s.gap=s.initialGap*(1-modeledClosure);
+s.elapsed=Math.min(s.duration,s.elapsed+dt);
+s.history.push([s.elapsed,modeledClosure*100]);
+}
+function project(c,w,h){const scale=Math.min(w,h)*.0042;const x=w/2+c.x*scale;const y=h*.51+c.y*scale-c.z*2;const depth=(c.z+12)/24;return{x,y,r:(c.type==='K'?4.5:5.5)*(.75+depth*.35),d:depth}}
+function draw(){
+if(!sim)return;
+const c=$('cellCanvas'),ctx=c.getContext('2d'),w=c.width,h=c.height;
+ctx.clearRect(0,0,w,h);
+
+/* Skin surface */
+const bg=ctx.createLinearGradient(0,0,0,h);
+bg.addColorStop(0,'#f3c6b5');
+bg.addColorStop(.55,'#e9ad9d');
+bg.addColorStop(1,'#c98778');
+ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+/* Tissue layers */
+ctx.fillStyle='rgba(255,235,225,.42)';
+ctx.fillRect(0,h*.08,w,h*.16);
+ctx.fillStyle='rgba(165,82,70,.18)';
+ctx.fillRect(0,h*.70,w,h*.30);
+
+/* Large straight slice wound */
+const closure=sim.history.length?sim.history.at(-1)[1]/100:0;
+const maxSliceW=Math.min(w*.64,h*.70);
+const sliceW=maxSliceW*Math.max(.12,1-closure*.88);
+const sliceH=h*.13;
+const sliceX=w/2-sliceW/2;
+const sliceY=h*.43;
+
+/* Deep wound cavity */
+ctx.save();
+ctx.beginPath();
+ctx.roundRect(sliceX,sliceY,sliceW,sliceH,8);
+ctx.fillStyle='#7f403e';
+ctx.fill();
+ctx.restore();
+
+/* Dark inner cut line */
+ctx.fillStyle='rgba(65,28,29,.55)';
+ctx.fillRect(sliceX+10,sliceY+sliceH*.38,sliceW-20,sliceH*.25);
+
+/* Raised skin edges */
+ctx.fillStyle='rgba(255,205,190,.65)';
+ctx.beginPath();
+ctx.roundRect(sliceX-3,sliceY-8,sliceW+6,10,5);
+ctx.fill();
+ctx.beginPath();
+ctx.roundRect(sliceX-3,sliceY+sliceH-2,sliceW+6,10,5);
+ctx.fill();
+
+/* Hydrogel-driven surface healing: the wound closes from its OUTER EDGES inward.
+   The center remains visibly open until the advancing tissue fronts meet. */
+if(closure>0){
+ const healed=sliceW*Math.min(1,closure);
+ const front=healed/2;
+ ctx.fillStyle='rgba(238,169,151,.88)';
+ ctx.fillRect(sliceX+3,sliceY+3,front,sliceH-6);
+ ctx.fillRect(sliceX+sliceW-3-front,sliceY+3,front,sliceH-6);
+ ctx.fillStyle='rgba(255,218,204,.78)';
+ ctx.fillRect(sliceX+3,sliceY+sliceH*.25,front,sliceH*.50);
+ ctx.fillRect(sliceX+sliceW-3-front,sliceY+sliceH*.25,front,sliceH*.50);
+}
+
+/* Hydrogel dressing over the slice */
+const gelW=Math.max(sliceW*1.04,90);
+ctx.fillStyle='rgba(185,150,245,.30)';
+ctx.strokeStyle='rgba(120,90,190,.38)';
+ctx.lineWidth=2;
+ctx.beginPath();
+ctx.roundRect(w/2-gelW/2,sliceY-34,gelW,24,8);
+ctx.fill();ctx.stroke();
+
+/* Cell agents approach the long wound edges */
+const cells=[...sim.cells].sort((a,b)=>a.z-b.z);
+for(const cell of cells){
+ const p=project(cell,w,h);
+ const side=cell.x<0?-1:1;
+ const targetX=w/2+side*(sliceW/2+9);
+ /* Make the agents appear along both sides of the slice */
+ p.x=targetX + (p.x-w/2)*.10;
+ p.y=h*.35+(cell.y+43)/86*h*.30;
+ const r=p.r;
+ const grad=ctx.createRadialGradient(p.x-r*.35,p.y-r*.45,r*.1,p.x,p.y,r);
+ grad.addColorStop(0,'#fff');
+ grad.addColorStop(.22,cell.type==='K'?'#8f8af5':'#f28bbb');
+ grad.addColorStop(1,cell.type==='K'?'#5146d8':'#d9468b');
+ ctx.fillStyle=grad;
+ ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill();
+ ctx.strokeStyle='rgba(20,30,50,.18)';ctx.stroke();
+}
+
+/* Final closure: only when the two outer healing fronts meet.
+   No tissue is drawn into the center prematurely. */
+if(closure>=.995){
+ ctx.fillStyle='rgba(255,220,207,.90)';
+ ctx.fillRect(sliceX+3,sliceY+4,sliceW-6,sliceH-8);
+}
+
+/* Labels */
+ctx.fillStyle='rgba(60,35,30,.78)';
+ctx.font='bold 16px Arial';
+ctx.fillText('Skin tissue — large linear wound',22,30);
+ctx.font='14px Arial';
+ctx.fillText(`Wound remaining: ${(100-closure*100).toFixed(1)}%`,22,52);
+ctx.fillText(`Healing progress: ${(closure*100).toFixed(1)}%`,22,73);
+
+$('mTime').textContent=sim.elapsed.toFixed(2)+' h';
+$('mGap').textContent=(sim.gap/40).toFixed(3)+' mm model gap';
+$('mPop').textContent=sim.cells.length;
+$('mClosure').textContent=sim.history.at(-1)[1].toFixed(2)+'%';
+const p=params(sim.group);
+$('liveParams').textContent=`Migration parameter: ${p.migration.toFixed(3)} model units/h · Proliferation: ${(p.prolif*100).toFixed(3)}%/h · DPPH/IC₅₀ factor: ${(p.antioxidantFactor*100).toFixed(1)}% · Release: ${p.release.toFixed(1)}% · pH factor: ${p.ph.toFixed(2)} · Survival modifier: ${(p.safety*100).toFixed(1)}% · Model closure ceiling: ${(p.targetClosure*100).toFixed(1)}%`;
+drawChart();
+}
+function drawChart(){
+ const ch=$('chart'),rect=ch.getBoundingClientRect();
+ const w=Math.max(280,rect.width),h=Math.max(220,rect.height),dpr=Math.max(1,window.devicePixelRatio||1);
+ if(ch.width!==Math.round(w*dpr)||ch.height!==Math.round(h*dpr)){ch.width=Math.round(w*dpr);ch.height=Math.round(h*dpr)}
+ const g=ch.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,w,h);
+ const mobile=w<480,left=mobile?48:64,right=mobile?14:28,top=20,bottom=mobile?42:48;
+ const pw=w-left-right,ph=h-top-bottom;
+ g.font=mobile?'11px Arial':'13px Arial';g.lineWidth=1;g.strokeStyle='#d9dee8';g.fillStyle='#667085';
+ for(let i=0;i<=4;i++){const y=top+ph*i/4,val=100-i*25;g.beginPath();g.moveTo(left,y);g.lineTo(w-right,y);g.stroke();g.textAlign='right';g.textBaseline='middle';g.fillText(val+'%',left-8,y)}
+ g.beginPath();g.moveTo(left,top);g.lineTo(left,top+ph);g.lineTo(w-right,top+ph);g.stroke();
+ g.save();g.translate(mobile?14:18,top+ph/2);g.rotate(-Math.PI/2);g.textAlign='center';g.textBaseline='middle';g.fillText('Closure (%)',0,0);g.restore();
+ g.textAlign='center';g.textBaseline='top';g.fillText('Time (h)',left+pw/2,top+ph+8);
+ if(sim&&sim.history.length>1){g.beginPath();sim.history.forEach((pt,i)=>{const x=left+pt[0]/sim.duration*pw,y=top+ph-clamp(pt[1],0,100)/100*ph;i?g.lineTo(x,y):g.moveTo(x,y)});g.strokeStyle='#5b4bdb';g.lineWidth=3;g.lineJoin='round';g.lineCap='round';g.stroke()}
+}function animationLoop(){if(!sim)return;const speed=num('speed',2);for(let i=0;i<Math.max(1,speed*2);i++){if(sim.elapsed>=sim.duration)break;step(sim,.1)}draw();if(sim.elapsed<sim.duration)animationId=requestAnimationFrame(animationLoop);else{animationId=null;$('simStatus').className='status good';$('simStatus').textContent='Simulation completed. This is a computational estimate.'}}
+function startSimulation(){saveAllInputs();if(!sim||sim.group!==$('simGroup').value||sim.elapsed>=sim.duration)sim=makeSim($('simGroup').value,Date.now());if(animationId)cancelAnimationFrame(animationId);$('simStatus').textContent='Simulation running...';animationId=requestAnimationFrame(animationLoop)}function pauseSimulation(){if(animationId){cancelAnimationFrame(animationId);animationId=null}$('simStatus').textContent='Simulation paused.'}function resetSimulation(){pauseSimulation();saveAllInputs();sim=makeSim($('simGroup').value,Date.now()>>>0);draw()}
+function runOne(group,seed,duration){const oldDuration=$('simDuration').value;$('simDuration').value=String(duration);const s=makeSim(group,seed);while(s.elapsed<s.duration)step(s,.1);$('simDuration').value=oldDuration;return s.history.at(-1)[1]}
+function mean(a){return a.length?a.reduce((x,y)=>x+y,0)/a.length:0}function sd(a){if(a.length<2)return 0;const m=mean(a);return Math.sqrt(a.reduce((x,y)=>x+(y-m)**2,0)/(a.length-1))}
+function runThree(){saveAllInputs();runs={control:[],experimental:[]};const duration=parseInt($('runDuration').value,10);const base=Date.now();for(const g of ['control','experimental'])for(let i=0;i<3;i++)runs[g].push(runOne(g,base+i*991+(g==='experimental'?733:17),duration));updateRuns();updateResults();$('runStatus').className='status good';$('runStatus').textContent='Three independent computational simulations completed for each group at '+duration+' hours.'}
+function updateRuns(){for(const g of ['control','experimental']){const p=g==='control'?'c':'e';runs[g].forEach((v,i)=>$(p+'t'+(i+1)).textContent=v.toFixed(2)+'%');$(p+'tm').textContent=mean(runs[g]).toFixed(2)+'%';$(p+'ts').textContent=sd(runs[g]).toFixed(2)+'%';if(g==='control')['r1','r2','r3'].forEach((id,i)=>$(id).textContent=runs[g][i].toFixed(2)+'%')}}
+function updateResults(){if(!runs.control.length){$('resC').textContent='—';$('resE').textContent='—';$('cmpC').textContent='—';$('cmpE').textContent='—';$('cmpCS').textContent='—';$('cmpES').textContent='—';return}$('resC').textContent=mean(runs.control).toFixed(2)+'%';$('resE').textContent=mean(runs.experimental).toFixed(2)+'%';$('cmpC').textContent=mean(runs.control).toFixed(2)+'%';$('cmpE').textContent=mean(runs.experimental).toFixed(2)+'%';$('cmpCS').textContent=sd(runs.control).toFixed(2);$('cmpES').textContent=sd(runs.experimental).toFixed(2)}function clearRuns(){runs={control:[],experimental:[]};document.querySelectorAll('[id^="ct"],[id^="et"]').forEach(x=>x.textContent='—');['r1','r2','r3'].forEach(x=>$(x).textContent='Not completed');updateResults()}
+function csv(rows){return rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n')}function download(name,text,type='text/csv'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportCurrent(){if(!sim){alert('Run a simulation first.');return}download('current_in_silico_simulation.csv',csv([['Time_h','Simulated_Closure_Percent'],...sim.history]))}
+function exportSummary(){if(!runs.control.length){alert('Run the three simulations first.');return}download('in_silico_wound_healing_summary.csv',csv([['Treatment','Run 1 Closure (%)','Run 2 Closure (%)','Run 3 Closure (%)','Mean Closure (%)','SD'],['Control Hydrogel',...runs.control,mean(runs.control),sd(runs.control)],['Carotenoid-Infused Hydrogel',...runs.experimental,mean(runs.experimental),sd(runs.experimental)]]))}
+window.addEventListener('resize',()=>{if(sim)drawChart()});
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));b.classList.add('active');$(b.dataset.tab).classList.add('active');if(b.dataset.tab==='simulation')draw()}));
+makeMeasurementInputs();loadMeasured();if(!inputs.control)saveAllInputs();updateTrace();
+</script>
+</body></html>
+
+
+
